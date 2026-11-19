@@ -1,66 +1,76 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Manzer Agroforestal — ERP de operaciones y contabilidad
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+ERP para una empresa de trabajos forestales en España (desbroce, tala, poda, herbicida): obras, partes de producción, personal, maquinaria, prevención de riesgos y facturación.
 
-## About Laravel
+![Dashboard administrativo](docs/screenshots/02-dashboard.png)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Contexto
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+La empresa coordina cuadrillas en varias obras a la vez y debe cumplir con normativa de prevención (EPIs, formación, certificaciones). La información estaba en hojas de cálculo separadas; el sistema la unifica y avisa antes de que algo caduque.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Funcionalidades
 
-## Learning Laravel
+- **Obras:** presupuesto, cliente, tipo de trabajo, estado y equipo asignado; tableros de seguimiento.
+- **Partes diarios y mensuales de producción** (m² de desbroce y herbicida, unidades de tala y poda).
+- **Recursos humanos:** trabajadores, cuadrillas, **fichajes** de entrada/salida con horas extra, bonos y primas.
+- **Maquinaria, vehículos y subcontratas.**
+- **Prevención:** inventario y entrega de EPIs, catálogo, revisiones y tipos de formación.
+- **Alertas y caducidades:** formaciones, seguros y certificaciones con niveles de criticidad y notificaciones por correo.
+- **Contabilidad:** ingresos, gastos por categoría, contratos, facturas (borrador → emitida → enviada → cobrada) y dashboard de rentabilidad mensual y flujo de caja.
+- **CRM básico** (leads e interacciones), documentos de empresa, emails de cumpleaños y **auditoría** de acciones.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Stack
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **Backend:** PHP 8, Laravel 9, MySQL/MariaDB
+- **Autenticación y permisos:** Laravel Breeze + spatie/laravel-permission (roles y permisos)
+- **Frontend:** Blade, Livewire, Alpine.js, Tailwind CSS, Bootstrap, DataTables, Chart.js
+- **Documentos:** DomPDF, Laravel Excel
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Capturas
 
-## Laravel Sponsors
+**Gestión de obras**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+![Gestión de obras](docs/screenshots/03-obras.png)
 
-### Premium Partners
+**Partes de producción**
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+![Partes de producción](docs/screenshots/04-partes-diarios.png)
 
-## Contributing
+**Facturación**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+![Facturación](docs/screenshots/05-facturas.png)
 
-## Code of Conduct
+**Fichajes del personal**
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+![Fichajes del personal](docs/screenshots/06-fichajes.png)
 
-## Security Vulnerabilities
+**Inventario de EPIs**
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+![Inventario de EPIs](docs/screenshots/07-epi-inventario.png)
 
-## License
+## Instalación local
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Requisitos: PHP 8.0+ (con extensiones `gd`, `zip`, `intl`), Composer, Node 18+ y MySQL/MariaDB.
+
+```bash
+git clone <url-del-repositorio>
+cd manzer
+composer install
+npm install && npm run build
+cp .env.example .env        # configura la conexión a la base de datos
+php artisan key:generate
+php artisan migrate --seed
+php artisan serve
+```
+
+La aplicación queda disponible en `http://localhost:8000`. Los seeders crean los roles y datos iniciales (revisa `database/seeders`).
+
+## Notas
+
+- Proyecto desarrollado para un cliente real y desplegado en producción. Las capturas se tomaron en un entorno local; el historial de este repositorio se depuró para no incluir credenciales ni copias de bases de datos.
+
+## Autor
+
+**Santiago Bellaizán** — Desarrollador Full Stack (Laravel · PHP · MySQL · JavaScript)
+
+- GitHub: [@Santibc](https://github.com/Santibc)
